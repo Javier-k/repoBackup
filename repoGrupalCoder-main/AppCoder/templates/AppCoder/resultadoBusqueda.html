@@ -1,0 +1,46 @@
+
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+
+{% block dinamico %}
+	{% if movies %}
+		<div class="trailers">
+			
+			<ul style="color: silver;">
+				{% for titulo in movies %}
+					<h1 class="modal-title"><li>{{	titulo.titulo	}}</li></h1>
+					
+					<div class="blog-item-style-1" >
+						<img src="{{ titulo.imagen.url }}">
+						
+						<h6 class="blog-item-style-2"><li>{{		titulo.descripcion		}}</li></h6>
+					</div>
+					
+					<div class="ads">
+						<a href="{% url titulo.titulo %}" class="button1">Ver Trailer</a>
+					</div>
+
+					<div class="time">
+						<li>Director: 		{{		titulo.director		}}</li>
+						<li>Cast:			{{		titulo.cast 		}}</li>
+						<li>Categoria: 		{{		titulo.categoria	}}</li>
+						<li>Idioma:   		{{		titulo.idioma		}}</li>
+						<li>Estado:			{{		titulo.estado 		}}</li>
+						<li>Estreno:		{{		titulo.prodYear 	}}</li>
+					</div>
+					
+					
+				{% endfor %}
+
+			</ul>
+		</div>
+	{% elif not movies%}
+		<h1 style="color: red;">{{	respuesta }}</h1>
+	{% else %}
+		<h1 style="color: red;">{{	respuesta }}</h1>
+	{% endif %}
+	
+
+{% endblock %}

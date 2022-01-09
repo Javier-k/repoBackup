@@ -1,0 +1,20 @@
+
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+
+{% block dinamico %}
+	
+{% for p in peliculas %}
+	<li style="color:#FFFFFF">{{ p }}</li>
+	<button>
+		<a href="{% url 'EliminarPeli' p.titulo %}"> Eliminar </a>
+	</button>
+	<button>
+		<a href="{% url 'EditarPeli' p.titulo %}"> Editar </a>
+	</button>
+
+{% endfor %}
+	<button> <a href=" {% url 'peliForm' %}" > Agregar Peli</a></button>
+{% endblock %}

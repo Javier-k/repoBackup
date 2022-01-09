@@ -1,0 +1,22 @@
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+{% block dinamico %}
+
+{% if miFormulario.errors %}
+
+	<h1 style = "color: red;">ERROR</h1>
+
+{% endif %}
+	<form action="/AppCoder/peliform" method="POST">{% csrf_token %}
+		
+		<table style="color: silver;">
+			{{	miFormulario.as_table	}}
+		</table>
+
+		<input type="submit" value="Enviar">
+		
+	</form>
+
+{% endblock %}
